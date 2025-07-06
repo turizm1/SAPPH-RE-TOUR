@@ -39,7 +39,8 @@
 <body style="background: linear-gradient(135deg, #f0f4ff, #ffffff);">
   <header>
     <img src="public/tur5.jpg" alt="Kapak" class="cover-image">
-    <h1 style="color: #1e3a8a; background: none;">Sapphire Tour</h1>
+    <h1 style="color: #1e3a8a; background: none; font-size: 48px; text-transform: uppercase;">Sapphire Tour</h1>
+    <p style="margin-top: -10px; font-size: 18px; color: #444; font-weight: bold;">Siz pasaportunuzu verin, vize onayınız bizden!</p>
     <nav>
       <ul>
         <li><a href="#">Ana Sayfa</a></li>
@@ -80,7 +81,6 @@
   <div class="galeri-menu">
     <button onclick="toggleGaleri('resim')">📷 Foto Galeri</button>
     <button onclick="toggleGaleri('yorum')">📝 Yorum Galerisi</button>
-    <a href="#" style="margin-left: 20px; font-weight: bold; text-decoration: underline; color: #1e3a8a;">Ana Sayfaya Dön</a>
   </div>
   <div id="galeri-resim" class="gallery">
     <button class="prev" onclick="changeSlide(-1)">⬅</button>
@@ -88,27 +88,67 @@
     <button class="next" onclick="changeSlide(1)">➡</button>
   </div>
   <div id="galeri-yorum" class="gallery" style="display: none;">
-    <ul>
-      ... (yorumlar burada) ...
-    </ul>
-    <div style="text-align: center; margin-top: 20px;">
-      <a href="#" style="font-weight: bold; text-decoration: underline; color: #1e3a8a;">Ana Sayfaya Dön</a>
+  <ul style="display:none">
+    <li><strong>Carlos (ES):</strong> La mejor experiencia de mi vida.</li>
+    <li><strong>Fatemeh (IR):</strong> سفر فوق العاده ای بود</li>
+    <li><strong>Michael (AU):</strong> Smooth, safe, and exciting!</li>
+    <li><strong>Lara (IT):</strong> Tutto perfetto, grazie mille!</li>
+    <li><strong>Sofia (SE):</strong> Fantastisk resa, rekommenderas varmt.</li>
+    <li><strong>Ahmed (EG):</strong> خدمة ممتازة وتنظيم رائع</li>
+    <li><strong>Julia (PL):</strong> Świetna wycieczka i organizacja.</li>
+    <li><strong>Hakan (TR):</strong> Ailecek çok memnun kaldık.</li>
+    <li><strong>Rebecca (US):</strong> Once in a lifetime experience.</li>
+    <li><strong>Khalid (SA):</strong> رحله ممتعه و آمنه</li>
+    <li><strong>Emily (UK):</strong> Top-notch customer service.</li>
+    <li><strong>Daniela (RO):</strong> Totul a fost super!</li>
+    <li><strong>Raj (IN):</strong> Best tour I've taken in years!</li>
+    <li><strong>Anna (UA):</strong> Все було чудово!</li>
+    <li><strong>Ali (AE):</strong> الرحلة رائعة بكل المقاييس</li>
+    <li><strong>Nina (DE):</strong> Sehr gut organisiert und sicher.</li>
+    <li><strong>Jamal (MA):</strong> أحسن جولة سياحية جربتها</li>
+    <li><strong>Marta (PT):</strong> Viagem memorável!</li>
+    <li><strong>Chiaki (JP):</strong> 素敵な体験をありがとう！</li>
+    <li><strong>Gökhan (TR):</strong> Her şey çok güzeldi, tekrar katılmak isterim.</li>
+    <li><strong>Samantha (US):</strong> Incredible locations, amazing people!</li>
+    <li><strong>Mohammed (QA):</strong> جولة أكثر من رائعة</li>
+    <li><strong>Denis (FR):</strong> Une organisation parfaite !</li>
+    <li><strong>Valentina (IT):</strong> Emozionante e unica.</li>
+    <li><strong>Özlem (TR):</strong> Herkese tavsiye ederim.</li>
+    <li><strong>Jorge (MX):</strong> Gracias por tan buen servicio.</li>
+    <li><strong>Zahra (IR):</strong> واقعا لذت بردم از سفرمون</li>
+    <li><strong>Helena (NO):</strong> En opplevelse for livet!</li>
+    <li><strong>Bilal (DZ):</strong> أفضل شركة سياحة تعاملت معها</li>
+    <li><strong>Thomas (CH):</strong> Sehr angenehme und reibungslose Reise!</li>
+    <li><strong>Ayşe (TR):</strong> Harika bir deneyimdi!</li>
+    <li><strong>John (UK):</strong> Amazing experience!</li>
+    <li><strong>Sara (EG):</strong> كانت رحلة رائعة!</li>
+    <li><strong>Alex (GR):</strong> Μια υπέροχη εμπειρία!</li>
+    <li><strong>Natalia (RU):</strong> Отличная поездка!</li>
+    <li><strong>Omar (SA):</strong> رحلة لا تُنسى!</li>
+    <li><strong>Linda (DE):</strong> Tolle Organisation!</li>
+    <li><strong>Yuki (JP):</strong> 最高の旅行でした！</li>
+    <li><strong>Clara (FR):</strong> Merci pour tout!</li>
+    <li><strong>Pedro (BR):</strong> Viagem inesquecível!</li>
+    <li><strong>Fatma (TR):</strong> Rehber çok ilgiliydi, tur harikaydı.</li>
+    <li><strong>David (US):</strong> A 5-star service indeed!</li>
+    <li><strong>Amina (AE):</strong> أحببت كل لحظة من الرحلة</li>
+    <li><strong>Giannis (GR):</strong> Το ταξίδι ήταν τέλειο!</li>
+    <li><strong>Irina (RU):</strong> Очень понравилось, вернусь снова!</li>
+    <li><strong>Salim (SA):</strong> تجربة ممتازة وخدمة رائعة</li>
+    <li><strong>Helga (DE):</strong> Alles war wunderbar organisiert.</li>
+    <li><strong>Takashi (JP):</strong> ガイドさんがとても親切でした。</li>
+    <li><strong>Marie (FR):</strong> Un voyage parfaitement organisé.</li>
+    <li><strong>Felipe (BR):</strong> O melhor passeio da minha vida!</li>
+  </ul>
+    <div class="yorum-slider">
+      <button onclick="changeYorum(-1)">⬅</button>
+      <div id="yorum-kartlari" style="display: flex; justify-content: center; align-items: center; gap: 20px;"></div>
+      <button onclick="changeYorum(1)">➡</button>
     </div>
   </div>
 </section>
 
-  <section id="yorumlar">
-  <h2>Müşteri Yorumları</h2>
-  <div class="sayaclar">
-    <p>💬 100.000+ Memnuniyet</p>
-    <p>⭐ 100.000+ Yıldız</p>
-  </div>
-  <div class="yorum-slider">
-    <button onclick="changeYorum(-1)">⬅</button>
-    <div id="yorum-kartlari" style="display: flex; justify-content: center; align-items: center; gap: 20px;"></div>
-    <button onclick="changeYorum(1)">➡</button>
-  </div>
-</section>
+  
 
   <section id="blog">
     <h2>Blog Yazıları</h2>
