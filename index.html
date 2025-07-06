@@ -14,21 +14,27 @@
     border-radius: 6px;
   }
   #yorum-kartlari {
-    display: inline-block;
-    animation: slideYorum 45s linear infinite;
-    color: white;
-  }
+  display: inline-block;
+  white-space: nowrap;
+  animation: slideYorum 120s linear infinite;
+  color: white;
+}
   @keyframes slideYorum {
-    0% { transform: translateX(100%); }
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
     100% { transform: translateX(-100%); }
   }
 
   #galeri-kartlari {
-    display: inline-block;
-    animation: slideGaleri 80s linear infinite;
-  }
+  display: inline-block;
+  white-space: nowrap;
+  animation: slideGaleri 120s linear infinite;
+}
   @keyframes slideGaleri {
-    0% { transform: translateX(100%); }
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
     100% { transform: translateX(-100%); }
   }
 </style>
@@ -100,7 +106,7 @@
   <h2 style="text-align: center; font-size: 32px; color: #1e3a8a; margin-top: 40px;">Galeri</h2>
   <p style="text-align: center; color: #555; margin-bottom: 10px;">Turlarımızdan kareler</p>
 <section id="galeri-slider" style="overflow: hidden; white-space: nowrap; padding: 20px 0;">
-  <div id="galeri-kartlari" style="display: inline-block; white-space: nowrap; animation: slideGaleri 60s linear infinite;">
+  <div id="galeri-kartlari" style="display: inline-block; white-space: nowrap; animation: slideGaleri 180s linear infinite;">
     <img src="public/tur1.jpg" alt="Tur 1" style="display: inline-block; margin-right: 20px; border-radius: 12px; width: 240px; box-shadow: 0 0 6px rgba(0,0,0,0.2);">
     <img src="public/tur2.jpg" alt="Tur 2" style="display: inline-block; margin-right: 20px; border-radius: 12px; width: 240px; box-shadow: 0 0 6px rgba(0,0,0,0.2);">
     <img src="public/tur3.jpg" alt="Tur 3" style="display: inline-block; margin-right: 20px; border-radius: 12px; width: 240px; box-shadow: 0 0 6px rgba(0,0,0,0.2);">
@@ -117,7 +123,7 @@
   <!-- YORUMLAR MEVCUT HALİYLE KALSIN, EKLEME YAP -->
   <section id="yorumlar">
     <div class="yorum-slider">
-      <div id="yorum-kartlari"></div>
+      <div id="yorum-kartlari" style="display: inline-block; white-space: nowrap; animation: slideYorum 180s linear infinite;"></div>
     </div>
     <ul id="yorum-kaynak" style="display:none">
       <li><strong>Carlos (ES):</strong> La mejor experiencia de mi vida.</li>
@@ -211,16 +217,31 @@
 </a>
 
   <script>
-  function rezervasyonGonder() {
-    const adsoyad = document.getElementById('adsoyad').value;
-    const tarih = document.getElementById('tarih').value;
-    const tur = document.getElementById('tursec').value;
-    const kisiler = document.getElementById('kisisayisi').value;
-    const mesaj = `Merhaba, ben ${adsoyad}. ${tarih} tarihinde ${tur} turu için ${kisiler} kişilik rezervasyon yapmak istiyorum.`;
-    const url = `https://wa.me/905369958215?text=${encodeURIComponent(mesaj)}`;
-    window.open(url, '_blank');
-    return false;
-  }
+function rezervasyonGonder() {
+  const adsoyad = document.getElementById('adsoyad').value;
+  const tarih = document.getElementById('tarih').value;
+  const tur = document.getElementById('tursec').value;
+  const kisiler = document.getElementById('kisisayisi').value;
+  const mesaj = `Merhaba, ben ${adsoyad}. ${tarih} tarihinde ${tur} turu için ${kisiler} kişilik rezervasyon yapmak istiyorum.`;
+  const url = `https://wa.me/905369958215?text=${encodeURIComponent(mesaj)}`;
+  window.open(url, '_blank');
+  return false;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const yorumlar = document.querySelectorAll('#yorum-kaynak li');
+  const yorumAlani = document.getElementById('yorum-kartlari');
+  yorumlar.forEach(li => {
+    for (let i = 0; i < 4; i++) {
+      const span = document.createElement('span');
+      span.textContent = li.textContent + '   ';
+      span.style.display = 'inline-block';
+      span.style.marginRight = '40px';
+      yorumAlani.appendChild(span);
+    }
+  });
+});
+});
 
   window.addEventListener('DOMContentLoaded', () => {
     const yorumlar = document.querySelectorAll('#yorum-kaynak li');
