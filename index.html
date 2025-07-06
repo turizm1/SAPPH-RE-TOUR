@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+  <style>
+    /* Animasyonlar */
+    .card, li {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover, li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    /* Buton hover */
+    button:hover {
+      background-color: #1e3a8a;
+      color: #fff;
+    }
+    /* Yorum kutuları */
+    #galeri-yorum li {
+      background: linear-gradient(135deg, #e0f7ff, #ffffff);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+  </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sapphire Tour</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background: linear-gradient(135deg, #f0f4ff, #ffffff);">
   <header>
     <img src="public/tur5.jpg" alt="Kapak" class="cover-image">
-    <h1>Sapphire Tour</h1>
+    <h1 style="color: #1e3a8a; background: none;">Sapphire Tour</h1>
     <nav>
       <ul>
         <li><a href="#">Ana Sayfa</a></li>
@@ -19,7 +43,7 @@
         <li><a href="#blog">Blog</a></li>
         <li><a href="#iletisim">İletişim</a></li>
         <li>
-          <select id="dilSec">
+          <select id="dilSec" style="background-color: #f1f1f1; color: #333; font-weight: bold;">
             <option value="tr">TR</option>
             <option value="en">EN</option>
             <option value="ar">AR</option>
@@ -41,10 +65,7 @@
         <option value="avrupa">Avrupa</option>
         <option value="dubai">Dubai / Abu Dabi</option>
       </select>
-      <button type="submit">
-        <img src="public/whatsapp.icon.jpg" alt="WhatsApp" class="icon">
-        Rezervasyonumu Tamamla
-      </button>
+      <button type="submit" class="submit-button">Rezervasyonumu Tamamla</button>
     </form>
   </section>
 
@@ -56,12 +77,12 @@
     </div>
     <div id="galeri-resim" class="gallery">
       <button class="prev" onclick="changeSlide(-1)">⬅</button>
-      <img id="slider-image" src="public/tur1.jpg" alt="Galeri Görseli" class="slider-image">
+      <img id="slider-image" src="public/tur1.jpg" alt="Galeri Görseli" class="slider-image" style="max-width: 800px; width: 100%; border-radius: 12px;">
       <button class="next" onclick="changeSlide(1)">➡</button>
     </div>
     <div id="galeri-yorum" class="gallery" style="display: none;">
       <ul>
-        <li><strong>Ayşe (TR):</strong> Harika bir deneyimdi!</li>
+        <li style="background: #f0f8ff; padding: 15px; border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.1); margin-bottom: 10px;"><strong>Ayşe (TR):</strong> Harika bir deneyimdi!</li>
         <li><strong>John (UK):</strong> Amazing experience!</li>
         <li><strong>Sara (EG):</strong> كانت رحلة رائعة!</li>
         <li><strong>Alex (GR):</strong> Μια υπέροχη εμπειρία!</li>
@@ -231,6 +252,7 @@ function changeYorum(adim) {
 }
 window.onload = () => changeYorum(0);
 </script>
+
 <a href="https://wa.me/905369958215" target="_blank" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
   <img src="public/whatsapp.icon.jpg" alt="WhatsApp" style="width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
 </a>
