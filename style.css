@@ -3,7 +3,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
+  background: #a0f0ec;
   color: #222;
 }
 
@@ -109,6 +109,31 @@ select {
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
 }
 
+/* Otomatik kayan yorumlar */
+.yorum-slider {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #b00020;
+  padding: 15px 0;
+  border-radius: 6px;
+}
+
+#yorum-kartlari {
+  display: inline-block;
+  animation: slideYorum 60s linear infinite;
+  color: white;
+}
+
+@keyframes slideYorum {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes slideGaleri {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 /* Blog kartları */
 .cards {
   display: flex;
@@ -119,12 +144,13 @@ select {
 }
 
 .card {
-  background: #fff;
-  border: 1px solid #ddd;
+  background: #b185db;
+  border: 1px solid #a66dd4;
   padding: 15px;
   border-radius: 10px;
   width: 300px;
-  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  color: white;
 }
 
 /* Sayaçlar */
