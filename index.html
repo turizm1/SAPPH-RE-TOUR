@@ -17,13 +17,19 @@
     }
     /* Yorum kutuları */
     #galeri-yorum li {
-      background: linear-gradient(135deg, #e0f7ff, #ffffff);
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
+  background: linear-gradient(135deg, #e0f7ff, #ffffff);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  margin: 10px;
+  font-size: 15px;
+  width: 250px;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
   </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,114 +76,26 @@
   </section>
 
   <section id="galeri">
-    <h2>Galeri</h2>
-    <div class="galeri-menu">
-      <button onclick="toggleGaleri('resim')">📷 Foto Galeri</button>
-      <button onclick="toggleGaleri('yorum')">📝 Yorum Galerisi</button>
+  <h2>Galeri</h2>
+  <div class="galeri-menu">
+    <button onclick="toggleGaleri('resim')">📷 Foto Galeri</button>
+    <button onclick="toggleGaleri('yorum')">📝 Yorum Galerisi</button>
+    <a href="#" style="margin-left: 20px; font-weight: bold; text-decoration: underline; color: #1e3a8a;">Ana Sayfaya Dön</a>
+  </div>
+  <div id="galeri-resim" class="gallery">
+    <button class="prev" onclick="changeSlide(-1)">⬅</button>
+    <img id="slider-image" src="public/tur1.jpg" alt="Galeri Görseli" class="slider-image" style="max-width: 800px; width: 100%; border-radius: 12px;">
+    <button class="next" onclick="changeSlide(1)">➡</button>
+  </div>
+  <div id="galeri-yorum" class="gallery" style="display: none;">
+    <ul>
+      ... (yorumlar burada) ...
+    </ul>
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="#" style="font-weight: bold; text-decoration: underline; color: #1e3a8a;">Ana Sayfaya Dön</a>
     </div>
-    <div id="galeri-resim" class="gallery">
-      <button class="prev" onclick="changeSlide(-1)">⬅</button>
-      <img id="slider-image" src="public/tur1.jpg" alt="Galeri Görseli" class="slider-image" style="max-width: 800px; width: 100%; border-radius: 12px;">
-      <button class="next" onclick="changeSlide(1)">➡</button>
-    </div>
-    <div id="galeri-yorum" class="gallery" style="display: none;">
-      <ul>
-        <li style="background: #f0f8ff; padding: 15px; border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.1); margin-bottom: 10px;"><strong>Ayşe (TR):</strong> Harika bir deneyimdi!</li>
-        <li><strong>John (UK):</strong> Amazing experience!</li>
-        <li><strong>Sara (EG):</strong> كانت رحلة رائعة!</li>
-        <li><strong>Alex (GR):</strong> Μια υπέροχη εμπειρία!</li>
-        <li><strong>Natalia (RU):</strong> Отличная поездка!</li>
-        <li><strong>Omar (SA):</strong> رحلة لا تُنسى!</li>
-        <li><strong>Linda (DE):</strong> Tolle Organisation!</li>
-        <li><strong>Yuki (JP):</strong> 最高の旅行でした！</li>
-        <li><strong>Clara (FR):</strong> Merci pour tout!</li>
-        <li><strong>Pedro (BR):</strong> Viagem inesquecível!</li>
-        <li><strong>Fatma (TR):</strong> Rehber çok ilgiliydi, tur harikaydı.</li>
-        <li><strong>David (US):</strong> A 5-star service indeed!</li>
-        <li><strong>Hüseyin (TR):</strong> Güler yüzlü ekip, tekrar tercih ederim.</li>
-        <li><strong>Amina (AE):</strong> كانت تجربة ممتازة!</li>
-        <li><strong>Giannis (GR):</strong> Εξαιρετική οργάνωση!</li>
-        <li><strong>Irina (RU):</strong> Всё понравилось, приеду снова!</li>
-        <li><strong>Helga (DE):</strong> Gute Führung, schöne Reise!</li>
-        <li><strong>Marie (FR):</strong> Merci pour cette belle expérience!</li>
-        <li><strong>Kenji (JP):</strong> 忘れられない思い出になりました。</li>
-        <li><strong>Lucas (BR):</strong> Perfeito, recomendo demais!</li>
-        <li><strong>Zeynep (TR):</strong> Her şey çok profesyoneldi.</li>
-        <li><strong>Emily (US):</strong> The team was amazing!</li>
-        <li><strong>Laila (AE):</strong> أفضل رحلة قمت بها!</li>
-        <li><strong>Nikos (GR):</strong> Πολύ καλή εμπειρία!</li>
-        <li><strong>Anastasia (RU):</strong> Отличная организация.</li>
-        <li><strong>Karl (DE):</strong> Sehr zufrieden, danke!</li>
-        <li><strong>Sakura (JP):</strong> また行きたいです！</li>
-        <li><strong>Celine (FR):</strong> Très bien organisé!</li>
-        <li><strong>Rafael (BR):</strong> Melhor passeio que já fiz!</li>
-        <li><strong>Ahmet (TR):</strong> Tur mükemmeldi, tekrar geleceğim.</li>
-        <li><strong>Daniel (US):</strong> Loved every moment!</li>
-        <li><strong>Noor (AE):</strong> خدمة رائعة!</li>
-        <li><strong>Petros (GR):</strong> Θα το ξανακάνω σίγουρα!</li>
-        <li><strong>Oksana (RU):</strong> Замечательная поездка.</li>
-        <li><strong>Yousef (SA):</strong> كل شيء ممتاز!</li>
-        <li><strong>Johann (DE):</strong> Toller Service!</li>
-        <li><strong>Renato (BR):</strong> Guias incríveis!</li>
-        <li><strong>Emine (TR):</strong> Ailece çok mutlu olduk.</li>
-        <li><strong>Mohammed (AE):</strong> خدمة على أعلى مستوى!</li>
-        <li><strong>Anna (RU):</strong> Очень приятное путешествие!</li>
-        <li><strong>Isabel (FR):</strong> Magnifique organisation!</li>
-        <li><strong>Furkan (TR):</strong> Her şey planlı ve sorunsuzdu.</li>
-        <li><strong>Lisa (US):</strong> Smooth trip from start to finish.</li>
-        <li><strong>Ahmed (EG):</strong> أحببت كل شيء!</li>
-        <li><strong>Stefanos (GR):</strong> Τέλεια εμπειρία!</li>
-        <li><strong>Tatyana (RU):</strong> Всё было супер!</li>
-        <li><strong>Ali (TR):</strong> Çok teşekkür ederim her şey için.</li>
-        <li><strong>Laura (BR):</strong> Melhor tour do ano!</li>
-        <li><strong>Ben (UK):</strong> Truly unforgettable!</li>
-        <li><strong>Sevgi (TR):</strong> Mükemmel rehberlik hizmeti.</li>
-        <li><strong>Fatima (SA):</strong> رحلة رائعة!</li>
-        <li><strong>Yannis (GR):</strong> Θα το προτείνω σε όλους!</li>
-        <li><strong>Elena (RU):</strong> Отличный сервис!</li>
-        <li><strong>Julia (FR):</strong> Une très belle aventure!</li>
-        <li><strong>Hasan (TR):</strong> Harika yerler gördük!</li>
-        <li><strong>Jose (BR):</strong> Viagem dos sonhos!</li>
-        <li><strong>Eva (DE):</strong> Sehr schön!</li>
-        <li><strong>Kenta (JP):</strong> とても楽しかったです！</li>
-        <li><strong>Yildiz (TR):</strong> Rehber çok bilgiliydi.</li>
-        <li><strong>Amir (AE):</strong> خدمة ممتازة!</li>
-        <li><strong>Murat (TR):</strong> Her şey süperdi!</li>
-        <li><strong>Olga (RU):</strong> Понравилось всё!</li>
-        <li><strong>Barbara (FR):</strong> Organisation parfaite!</li>
-        <li><strong>Aliya (TR):</strong> Eşimle birlikte çok keyif aldık.</li>
-        <li><strong>Thomas (US):</strong> Great from beginning to end!</li>
-        <li><strong>Salma (EG):</strong> أحببت التنظيم!</li>
-        <li><strong>Dimitris (GR):</strong> Πολύ ικανοποιημένος!</li>
-        <li><strong>Sven (DE):</strong> Alles war top!</li>
-        <li><strong>Aiko (JP):</strong> 忘れられない体験でした。</li>
-        <li><strong>Berna (TR):</strong> Çok memnun kaldık!</li>
-        <li><strong>Luis (BR):</strong> Valeu a pena!</li>
-        <li><strong>Emma (UK):</strong> I’ll book again!</li>
-        <li><strong>Ayhan (TR):</strong> Tur harikaydı!</li>
-        <li><strong>Yara (AE):</strong> خدمة مثالية!</li>
-        <li><strong>Alexis (FR):</strong> Très agréable!</li>
-        <li><strong>Burcu (TR):</strong> Güler yüzlü personel.</li>
-        <li><strong>Tarik (SA):</strong> رحلة ممتازة!</li>
-        <li><strong>Valentina (RU):</strong> Всё понравилось!</li>
-        <li><strong>Canan (TR):</strong> Her şey için teşekkürler.</li>
-        <li><strong>Jonathan (US):</strong> 10/10 experience!</li>
-        <li><strong>Selma (TR):</strong> Harika organizasyon.</li>
-        <li><strong>Mohamed (EG):</strong> تجربة لا تنسى!</li>
-        <li><strong>Stefan (DE):</strong> Perfekte Reise!</li>
-        <li><strong>Riko (JP):</strong> すばらしい旅行でした！</li>
-        <li><strong>Mehmet (TR):</strong> Her şey zamanındaydı!</li>
-        <li><strong>Camila (BR):</strong> Tudo perfeito!</li>
-        <li><strong>Sophie (UK):</strong> Highly recommended!</li>
-        <li><strong>Gizem (TR):</strong> Çok keyifliydi!</li>
-        <li><strong>Samir (SA):</strong> خدمة رائعة!</li>
-        <li><strong>Anton (RU):</strong> Очень доволен!</li>
-        <li><strong>Isabelle (FR):</strong> C’était génial!</li>
-        <li><strong>Ayşegül (TR):</strong> Gerçekten unutulmazdı.</li>
-        <li><strong>James (US):</strong> Everything was smooth!</li>
-      </ul>
-    </div>
-  </section>
+  </div>
+</section>
 
   <section id="yorumlar">
   <h2>Müşteri Yorumları</h2>
@@ -187,7 +105,7 @@
   </div>
   <div class="yorum-slider">
     <button onclick="changeYorum(-1)">⬅</button>
-    <div id="yorum-kartlari"></div>
+    <div id="yorum-kartlari" style="display: flex; justify-content: center; align-items: center; gap: 20px;"></div>
     <button onclick="changeYorum(1)">➡</button>
   </div>
 </section>
@@ -202,15 +120,16 @@
   </section>
 
   <footer id="iletisim">
-    <p>&copy; 2025 Sapphire Tour | 
-      <a href="https://wa.me/905369958215" target="_blank">
-        <img src="public/whatsapp.icon.jpg" alt="WhatsApp" class="icon">
-      </a>
-      <a href="https://www.instagram.com/sapphireturlari?igsh=MXR1NGp2N2I2bWFl" target="_blank">
-        <img src="public/instagram.icon.png" alt="Instagram" class="icon">
-      </a>
-    </p>
-  </footer>
+  <p>&copy; 2025 Sapphire Tour | </p>
+  <div style="text-align: center; margin-top: 10px;">
+    <a href="https://wa.me/905369958215" target="_blank">
+      <img src="public/whatsapp.icon.jpg" alt="WhatsApp" class="icon">
+    </a>
+    <a href="https://www.instagram.com/sapphireturlari?igsh=MXR1NGp2N2I2bWFl" target="_blank">
+      <img src="public/instagram.icon.png" alt="Instagram" class="icon">
+    </a>
+  </div>
+</footer>
 
   <script>
     function toggleGaleri(type) {
@@ -248,7 +167,7 @@ function changeYorum(adim) {
   if (yorumIndex > Math.floor((yorumlar.length - 1) / 4)) yorumIndex = 0;
   const baslangic = yorumIndex * 4;
   const gosterilecek = yorumlar.slice(baslangic, baslangic + 4).join('');
-  document.getElementById('yorum-kartlari').innerHTML = `<ul>${gosterilecek}</ul>`;
+  document.getElementById('yorum-kartlari').innerHTML = gosterilecek;
 }
 window.onload = () => changeYorum(0);
 </script>
