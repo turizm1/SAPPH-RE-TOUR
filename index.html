@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sapphire Tour</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="public/tur5.jpg" alt="Kapak" class="cover-image">
+    <h1>Sapphire Tour</h1>
+    <nav>
+      <ul>
+        <li><a href="#turlar">Turlar</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#yorumlar">Yorumlar</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+        <li>
+          <select id="dilSec">
+            <option value="tr">TR</option>
+            <option value="en">EN</option>
+            <option value="ar">AR</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="rezervasyon">
+    <h2>Rezervasyon Yap</h2>
+    <form onsubmit="return rezervasyonGonder()">
+      <input type="text" id="adsoyad" placeholder="Ad Soyad" required>
+      <input type="date" id="tarih" required>
+      <select id="tursec" required>
+        <option value="">Tur Seçiniz</option>
+        <option value="balkan">Balkanlar</option>
+        <option value="avrupa">Avrupa</option>
+        <option value="dubai">Dubai / Abu Dabi</option>
+      </select>
+      <button type="submit">
+        <img src="public/whatsapp.icon.jpg" alt="WhatsApp" class="icon">
+        WhatsApp ile Gönder
+      </button>
+    </form>
+  </section>
+
+  <section id="galeri">
+    <h2>Galeri</h2>
+    <div class="galeri-menu">
+      <button onclick="toggleGaleri('resim')">📷 Foto Galeri</button>
+      <button onclick="toggleGaleri('yorum')">📝 Yorum Galerisi</button>
+    </div>
+    <div id="galeri-resim" class="gallery">
+        <img src="public/tur1.jpg" alt="Tur 1">
+        <img src="public/tur2.jpg" alt="Tur 2">
+        <img src="public/tur3.jpg" alt="Tur 3">
+        <img src="public/tur4.jpg" alt="Tur 4">
+        <img src="public/tur5.jpg" alt="Tur 5">
+        <img src="public/tur6.jpg" alt="Tur 6">
+        <img src="public/tur7.jpg" alt="Tur 7">
+        <img src="public/tur8.jpg" alt="Tur 8">
+        <img src="public/tur9.jpg" alt="Tur 9">
+        <img src="public/tur10.jpg" alt="Tur 10">
+        <img src="public/tur11.jpg" alt="Tur 11">
+        <img src="public/tur12.jpg" alt="Tur 12">
+        <img src="public/tur13.jpg" alt="Tur 13">
+        <img src="public/tur14.jpg" alt="Tur 14">
+        <img src="public/tur15.jpg" alt="Tur 15">
+        <img src="public/tur16.jpg" alt="Tur 16">
+        <img src="public/tur17.jpg" alt="Tur 17">
+        <img src="public/tur18.jpg" alt="Tur 18">
+        <img src="public/tur19.jpg" alt="Tur 19">
+      </div>
+    <div id="galeri-yorum" class="gallery" style="display: none;">
+      <ul>
+        <li><strong>Ayşe (TR):</strong> Harika bir deneyimdi!</li>
+        <li><strong>John (UK):</strong> Amazing experience!</li>
+        <li><strong>Sara (EG):</strong> كانت رحلة رائعة!</li>
+        <li><strong>Alex (GR):</strong> Μια υπέροχη εμπειρία!</li>
+        <li><strong>Natalia (RU):</strong> Отличная поездка!</li>
+        <li><strong>Omar (SA):</strong> رحلة لا تُنسى!</li>
+        <li><strong>Linda (DE):</strong> Tolle Organisation!</li>
+        <li><strong>Yuki (JP):</strong> 最高の旅行でした！</li>
+        <li><strong>Clara (FR):</strong> Merci pour tout!</li>
+        <li><strong>Pedro (BR):</strong> Viagem inesquecível!</li>
+        <li><strong>Fatma (TR):</strong> Rehber çok ilgiliydi, tur harikaydı.</li>
+        <li><strong>David (US):</strong> A 5-star service indeed!</li>
+        <li><strong>Hüseyin (TR):</strong> Güler yüzlü ekip, tekrar tercih ederim.</li>
+        <li><strong>Amina (AE):</strong> كانت تجربة ممتازة!</li>
+        <li><strong>Giannis (GR):</strong> Εξαιρετική οργάνωση!</li>
+        <li><strong>Irina (RU):</strong> Всё понравилось, приеду снова!</li>
+        <li><strong>Helga (DE):</strong> Gute Führung, schöne Reise!</li>
+        <li><strong>Marie (FR):</strong> Merci pour cette belle expérience!</li>
+        <li><strong>Kenji (JP):</strong> 忘れられない思い出になりました。</li>
+        <li><strong>Lucas (BR):</strong> Perfeito, recomendo demais!</li>
+        <li><strong>Zeynep (TR):</strong> Her şey çok profesyoneldi.</li>
+        <li><strong>Emily (US):</strong> The team was amazing!</li>
+        <li><strong>Laila (AE):</strong> أفضل رحلة قمت بها!</li>
+        <li><strong>Nikos (GR):</strong> Πολύ καλή εμπειρία!</li>
+        <li><strong>Anastasia (RU):</strong> Отличная организация.</li>
+        <li><strong>Karl (DE):</strong> Sehr zufrieden, danke!</li>
+        <li><strong>Sakura (JP):</strong> また行きたいです！</li>
+        <li><strong>Celine (FR):</strong> Très bien organisé!</li>
+        <li><strong>Rafael (BR):</strong> Melhor passeio que já fiz!</li>
+        <li><strong>Ahmet (TR):</strong> Tur mükemmeldi, tekrar geleceğim.</li>
+        <li><strong>Daniel (US):</strong> Loved every moment!</li>
+        <li><strong>Noor (AE):</strong> خدمة رائعة!</li>
+        <li><strong>Petros (GR):</strong> Θα το ξανακάνω σίγουρα!</li>
+        <li><strong>Oksana (RU):</strong> Замечательная поездка.</li>
+        <li><strong>Yousef (SA):</strong> كل شيء ممتاز!</li>
+        <li><strong>Johann (DE):</strong> Toller Service!</li>
+        <li><strong>Renato (BR):</strong> Guias incríveis!</li>
+        <li><strong>Emine (TR):</strong> Ailece çok mutlu olduk.</li>
+        <li><strong>Mohammed (AE):</strong> خدمة على أعلى مستوى!</li>
+        <li><strong>Anna (RU):</strong> Очень приятное путешествие!</li>
+        <li><strong>Isabel (FR):</strong> Magnifique organisation!</li>
+        <li><strong>Furkan (TR):</strong> Her şey planlı ve sorunsuzdu.</li>
+        <li><strong>Lisa (US):</strong> Smooth trip from start to finish.</li>
+        <li><strong>Ahmed (EG):</strong> أحببت كل شيء!</li>
+        <li><strong>Stefanos (GR):</strong> Τέλεια εμπειρία!</li>
+        <li><strong>Tatyana (RU):</strong> Всё было супер!</li>
+        <li><strong>Ali (TR):</strong> Çok teşekkür ederim her şey için.</li>
+        <li><strong>Laura (BR):</strong> Melhor tour do ano!</li>
+        <li><strong>Ben (UK):</strong> Truly unforgettable!</li>
+        <li><strong>Sevgi (TR):</strong> Mükemmel rehberlik hizmeti.</li>
+        <li><strong>Fatima (SA):</strong> رحلة رائعة!</li>
+        <li><strong>Yannis (GR):</strong> Θα το προτείνω σε όλους!</li>
+        <li><strong>Elena (RU):</strong> Отличный сервис!</li>
+        <li><strong>Julia (FR):</strong> Une très belle aventure!</li>
+        <li><strong>Hasan (TR):</strong> Harika yerler gördük!</li>
+        <li><strong>Jose (BR):</strong> Viagem dos sonhos!</li>
+        <li><strong>Eva (DE):</strong> Sehr schön!</li>
+        <li><strong>Kenta (JP):</strong> とても楽しかったです！</li>
+        <li><strong>Yildiz (TR):</strong> Rehber çok bilgiliydi.</li>
+        <li><strong>Amir (AE):</strong> خدمة ممتازة!</li>
+        <li><strong>Murat (TR):</strong> Her şey süperdi!</li>
+        <li><strong>Olga (RU):</strong> Понравилось всё!</li>
+        <li><strong>Barbara (FR):</strong> Organisation parfaite!</li>
+        <li><strong>Aliya (TR):</strong> Eşimle birlikte çok keyif aldık.</li>
+        <li><strong>Thomas (US):</strong> Great from beginning to end!</li>
+        <li><strong>Salma (EG):</strong> أحببت التنظيم!</li>
+        <li><strong>Dimitris (GR):</strong> Πολύ ικανοποιημένος!</li>
+        <li><strong>Sven (DE):</strong> Alles war top!</li>
+        <li><strong>Aiko (JP):</strong> 忘れられない体験でした。</li>
+        <li><strong>Berna (TR):</strong> Çok memnun kaldık!</li>
+        <li><strong>Luis (BR):</strong> Valeu a pena!</li>
+        <li><strong>Emma (UK):</strong> I’ll book again!</li>
+        <li><strong>Ayhan (TR):</strong> Tur harikaydı!</li>
+        <li><strong>Yara (AE):</strong> خدمة مثالية!</li>
+        <li><strong>Alexis (FR):</strong> Très agréable!</li>
+        <li><strong>Burcu (TR):</strong> Güler yüzlü personel.</li>
+        <li><strong>Tarik (SA):</strong> رحلة ممتازة!</li>
+        <li><strong>Valentina (RU):</strong> Всё понравилось!</li>
+        <li><strong>Canan (TR):</strong> Her şey için teşekkürler.</li>
+        <li><strong>Jonathan (US):</strong> 10/10 experience!</li>
+        <li><strong>Selma (TR):</strong> Harika organizasyon.</li>
+        <li><strong>Mohamed (EG):</strong> تجربة لا تنسى!</li>
+        <li><strong>Stefan (DE):</strong> Perfekte Reise!</li>
+        <li><strong>Riko (JP):</strong> すばらしい旅行でした！</li>
+        <li><strong>Mehmet (TR):</strong> Her şey zamanındaydı!</li>
+        <li><strong>Camila (BR):</strong> Tudo perfeito!</li>
+        <li><strong>Sophie (UK):</strong> Highly recommended!</li>
+        <li><strong>Gizem (TR):</strong> Çok keyifliydi!</li>
+        <li><strong>Samir (SA):</strong> خدمة رائعة!</li>
+        <li><strong>Anton (RU):</strong> Очень доволен!</li>
+        <li><strong>Isabelle (FR):</strong> C’était génial!</li>
+        <li><strong>Ayşegül (TR):</strong> Gerçekten unutulmazdı.</li>
+        <li><strong>James (US):</strong> Everything was smooth!</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="yorumlar">
+    <h2>Müşteri Yorumları</h2>
+    <div class="sayaclar">
+      <p>💬 100.000+ Memnuniyet</p>
+      <p>⭐ 100.000+ Yıldız</p>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>Blog Yazıları</h2>
+    <div class="cards">
+      <div class="card"><h3>1. Balkan Turlarının En Güzel Durakları</h3><p>Bu yazımızda Balkanların eşsiz şehirlerini keşfe çıkıyoruz. Tarih, kültür ve doğanın buluştuğu rotaları inceliyoruz.</p></div>
+      <div class="card"><h3>2. Avrupa Rüyası: 7 Günde 5 Şehir</h3><p>Avrupa'nın kalbinde unutulmaz bir yolculuk. Paris, Roma, Amsterdam, Berlin ve Prag'da masalsı bir gezi.</p></div>
+      <div class="card"><h3>3. Dubai'de Lüks ve Macera</h3><p>Dubai çöl safarisi, Burj Khalifa, alışveriş cennetleri ve marina hayatıyla dolu dolu bir tatil deneyimi.</p></div>
+    </div>
+  </section>
+
+  <footer id="iletisim">
+    <p>&copy; 2025 Sapphire Tour | 
+      <a href="https://wa.me/905369958215" target="_blank">
+        <img src="public/whatsapp.icon.jpg" alt="WhatsApp" class="icon">
+      </a>
+      <a href="https://www.instagram.com/sapphireturlari?igsh=MXR1NGp2N2I2bWFl" target="_blank">
+        <img src="public/instagram.icon.png" alt="Instagram" class="icon">
+      </a>
+    </p>
+  </footer>
+
+  <script>
+    function toggleGaleri(type) {
+      document.getElementById('galeri-resim').style.display = type === 'resim' ? 'block' : 'none';
+      document.getElementById('galeri-yorum').style.display = type === 'yorum' ? 'block' : 'none';
+    }
+
+    function rezervasyonGonder() {
+      const adsoyad = document.getElementById('adsoyad').value;
+      const tarih = document.getElementById('tarih').value;
+      const tur = document.getElementById('tursec').value;
+      const mesaj = `Merhaba, ben ${adsoyad}. ${tarih} tarihinde ${tur} turu için rezervasyon yapmak istiyorum.`;
+      const url = `https://wa.me/905369958215?text=${encodeURIComponent(mesaj)}`;
+      window.open(url, '_blank');
+      return false;
+    }
+  </script>
+</body>
+</html>

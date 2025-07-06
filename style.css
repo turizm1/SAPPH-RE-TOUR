@@ -1,0 +1,172 @@
+/* Genel görünüm */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #222;
+}
+
+/* Başlık ve menü */
+header {
+  background: linear-gradient(to right, #005aa7, #00c6fb);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header img.cover-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-bottom: 3px solid #ffffff66;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 20px 0 0;
+  gap: 15px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+select {
+  padding: 5px;
+  border-radius: 4px;
+}
+
+/* Rezervasyon Formu */
+#rezervasyon {
+  background: #ffffff;
+  padding: 30px;
+  text-align: center;
+}
+
+#rezervasyon input, #rezervasyon select, #rezervasyon button {
+  padding: 10px;
+  margin: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 250px;
+}
+
+#rezervasyon button {
+  background-color: #25d366;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#rezervasyon button img.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Galeri */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 180px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+/* Yorum Galerisi */
+#galeri-yorum ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+#galeri-yorum li {
+  background: #fff;
+  margin: 8px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+/* Blog kartları */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+}
+
+/* Sayaçlar */
+.sayaclar {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 0;
+  color: #444;
+}
+
+/* Footer */
+footer {
+  background: #f1f1f1;
+  text-align: center;
+  padding: 20px;
+}
+
+footer img.icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* Mobil uyum */
+@media screen and (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #rezervasyon input, #rezervasyon select, #rezervasyon button {
+    width: 90%;
+  }
+
+  .gallery img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
