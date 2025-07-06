@@ -47,50 +47,59 @@ select {
   border-radius: 4px;
 }
 
-/* Rezervasyon Formu */
-#rezervasyon {
-  background: #ffffff;
-  padding: 30px;
+/* Modern rezervasyon paneli */
+#rezervasyon-modern {
+  background: linear-gradient(135deg, #dff9fb, #f6e58d);
+  padding: 40px 20px;
   text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 40px auto 20px;
 }
 
-#rezervasyon input, #rezervasyon select, #rezervasyon button {
-  padding: 10px;
-  margin: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  width: 250px;
-}
-
-#rezervasyon button {
-  background-color: #25d366;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-#rezervasyon button img.icon {
-  width: 20px;
-  height: 20px;
-}
-
-/* Galeri */
-.gallery {
+#rezervasyon-modern form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
-  gap: 10px;
+  gap: 15px;
 }
 
-.gallery img {
-  width: 180px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+#rezervasyon-modern input,
+#rezervasyon-modern select,
+#rezervasyon-modern button {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 260px;
+  font-size: 16px;
+}
+
+#rezervasyon-modern button {
+  background-color: #22a6b3;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* Galeri */
+#galeri-slider {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 20px 0;
+}
+
+#galeri-kartlari {
+  display: inline-block;
+  animation: slideGaleri 80s linear infinite;
+}
+
+#galeri-kartlari img {
+  width: 240px;
+  margin-right: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
 }
 
 /* Yorum Galerisi */
@@ -109,7 +118,6 @@ select {
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
 }
 
-/* Otomatik kayan yorumlar */
 .yorum-slider {
   overflow: hidden;
   white-space: nowrap;
@@ -183,11 +191,17 @@ footer img.icon {
     gap: 10px;
   }
 
-  #rezervasyon input, #rezervasyon select, #rezervasyon button {
+  #rezervasyon input,
+  #rezervasyon select,
+  #rezervasyon button,
+  #rezervasyon-modern input,
+  #rezervasyon-modern select,
+  #rezervasyon-modern button {
     width: 90%;
   }
 
-  .gallery img {
+  .gallery img,
+  #galeri-kartlari img {
     width: 100%;
     max-width: 300px;
   }
