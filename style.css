@@ -91,8 +91,10 @@ select {
 }
 
 #galeri-kartlari {
-  display: inline-block;
+  display: flex;
+  gap: 20px;
   animation: slideGaleri 80s linear infinite;
+  align-items: center;
 }
 
 #galeri-kartlari img {
@@ -127,9 +129,11 @@ select {
 }
 
 #yorum-kartlari {
-  display: inline-block;
+  display: flex;
+  gap: 20px;
   animation: slideYorum 60s linear infinite;
   color: white;
+  align-items: center;
 }
 
 @keyframes slideYorum {
