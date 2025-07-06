@@ -84,8 +84,8 @@
     <img id="slider-image" src="public/tur16.jpg" alt="Galeri Görseli" class="slider-image" style="max-width: 800px; width: 100%; border-radius: 12px; display: block; margin: auto;">
     <button class="next" onclick="changeSlide(1)">➡</button>
   </div>
-  <div id="galeri-yorum" class="gallery" style="display: none;">
-  <ul style="display:none">
+  <div id="galeri-yorum" class="gallery" style="display: block;">
+  <ul style="display: none" id="yorum-kaynak">
     <li><strong>Carlos (ES):</strong> La mejor experiencia de mi vida.</li>
     <li><strong>Fatemeh (IR):</strong> سفر فوق العاده ای بود</li>
     <li><strong>Michael (AU):</strong> Smooth, safe, and exciting!</li>
@@ -194,6 +194,7 @@
   const sliderImg = document.getElementById('slider-image');
   sliderImg.src = `public/tur${currentSlide}.jpg`;
   sliderImg.alt = `Tur ${currentSlide}`;
+}`;
 }.jpg`;
   sliderImg.alt = `Tur ${currentSlide}`;
 }.jpg`;
