@@ -12,6 +12,7 @@
     <h1>Sapphire Tour</h1>
     <nav>
       <ul>
+        <li><a href="#">Ana Sayfa</a></li>
         <li><a href="#turlar">Turlar</a></li>
         <li><a href="#galeri">Galeri</a></li>
         <li><a href="#yorumlar">Yorumlar</a></li>
@@ -33,6 +34,7 @@
     <form onsubmit="return rezervasyonGonder()">
       <input type="text" id="adsoyad" placeholder="Ad Soyad" required>
       <input type="date" id="tarih" required>
+      <input type="number" id="kisisayisi" placeholder="Kişi Sayısı" required min="1">
       <select id="tursec" required>
         <option value="">Tur Seçiniz</option>
         <option value="balkan">Balkanlar</option>
@@ -41,7 +43,7 @@
       </select>
       <button type="submit">
         <img src="public/whatsapp.icon.jpg" alt="WhatsApp" class="icon">
-        WhatsApp ile Gönder
+        Rezervasyonumu Tamamla
       </button>
     </form>
   </section>
@@ -53,26 +55,10 @@
       <button onclick="toggleGaleri('yorum')">📝 Yorum Galerisi</button>
     </div>
     <div id="galeri-resim" class="gallery">
-        <img src="public/tur1.jpg" alt="Tur 1">
-        <img src="public/tur2.jpg" alt="Tur 2">
-        <img src="public/tur3.jpg" alt="Tur 3">
-        <img src="public/tur4.jpg" alt="Tur 4">
-        <img src="public/tur5.jpg" alt="Tur 5">
-        <img src="public/tur6.jpg" alt="Tur 6">
-        <img src="public/tur7.jpg" alt="Tur 7">
-        <img src="public/tur8.jpg" alt="Tur 8">
-        <img src="public/tur9.jpg" alt="Tur 9">
-        <img src="public/tur10.jpg" alt="Tur 10">
-        <img src="public/tur11.jpg" alt="Tur 11">
-        <img src="public/tur12.jpg" alt="Tur 12">
-        <img src="public/tur13.jpg" alt="Tur 13">
-        <img src="public/tur14.jpg" alt="Tur 14">
-        <img src="public/tur15.jpg" alt="Tur 15">
-        <img src="public/tur16.jpg" alt="Tur 16">
-        <img src="public/tur17.jpg" alt="Tur 17">
-        <img src="public/tur18.jpg" alt="Tur 18">
-        <img src="public/tur19.jpg" alt="Tur 19">
-      </div>
+      <button class="prev" onclick="changeSlide(-1)">⬅</button>
+      <img id="slider-image" src="public/tur1.jpg" alt="Galeri Görseli" class="slider-image">
+      <button class="next" onclick="changeSlide(1)">➡</button>
+    </div>
     <div id="galeri-yorum" class="gallery" style="display: none;">
       <ul>
         <li><strong>Ayşe (TR):</strong> Harika bir deneyimdi!</li>
@@ -173,12 +159,17 @@
   </section>
 
   <section id="yorumlar">
-    <h2>Müşteri Yorumları</h2>
-    <div class="sayaclar">
-      <p>💬 100.000+ Memnuniyet</p>
-      <p>⭐ 100.000+ Yıldız</p>
-    </div>
-  </section>
+  <h2>Müşteri Yorumları</h2>
+  <div class="sayaclar">
+    <p>💬 100.000+ Memnuniyet</p>
+    <p>⭐ 100.000+ Yıldız</p>
+  </div>
+  <div class="yorum-slider">
+    <button onclick="changeYorum(-1)">⬅</button>
+    <div id="yorum-kartlari"></div>
+    <button onclick="changeYorum(1)">➡</button>
+  </div>
+</section>
 
   <section id="blog">
     <h2>Blog Yazıları</h2>
@@ -210,11 +201,38 @@
       const adsoyad = document.getElementById('adsoyad').value;
       const tarih = document.getElementById('tarih').value;
       const tur = document.getElementById('tursec').value;
-      const mesaj = `Merhaba, ben ${adsoyad}. ${tarih} tarihinde ${tur} turu için rezervasyon yapmak istiyorum.`;
+      const kisiler = document.getElementById('kisisayisi').value;
+      const mesaj = `Merhaba, ben ${adsoyad}. ${tarih} tarihinde ${tur} turu için ${kisiler} kişilik rezervasyon yapmak istiyorum.`;
       const url = `https://wa.me/905369958215?text=${encodeURIComponent(mesaj)}`;
       window.open(url, '_blank');
       return false;
     }
-  </script>
+      let currentSlide = 1;
+    const totalSlides = 19;
+
+    function changeSlide(step) {
+      currentSlide += step;
+      if (currentSlide < 1) currentSlide = totalSlides;
+      if (currentSlide > totalSlides) currentSlide = 1;
+      const sliderImg = document.getElementById('slider-image');
+      sliderImg.src = `public/tur${currentSlide}.jpg`;
+      sliderImg.alt = `Tur ${currentSlide}`;
+    }
+  let yorumlar = Array.from(document.querySelectorAll('#galeri-yorum li')).map(li => li.outerHTML);
+let yorumIndex = 0;
+
+function changeYorum(adim) {
+  yorumIndex += adim;
+  if (yorumIndex < 0) yorumIndex = Math.floor((yorumlar.length - 1) / 4);
+  if (yorumIndex > Math.floor((yorumlar.length - 1) / 4)) yorumIndex = 0;
+  const baslangic = yorumIndex * 4;
+  const gosterilecek = yorumlar.slice(baslangic, baslangic + 4).join('');
+  document.getElementById('yorum-kartlari').innerHTML = `<ul>${gosterilecek}</ul>`;
+}
+window.onload = () => changeYorum(0);
+</script>
+<a href="https://wa.me/905369958215" target="_blank" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <img src="public/whatsapp.icon.jpg" alt="WhatsApp" style="width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+</a>
 </body>
 </html>
