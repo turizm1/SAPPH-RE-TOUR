@@ -17,13 +17,13 @@
     }
     /* Yorum kutuları */
     #galeri-yorum li {
-  background: linear-gradient(135deg, #e0f7ff, #ffffff);
+  background: linear-gradient(135deg, #ffe2e2, #e0f7ff);
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
   margin: 10px;
   font-size: 15px;
-  width: 250px;
+  width: 300px;
   min-height: 180px;
   display: flex;
   align-items: center;
@@ -78,13 +78,10 @@
 
   <section id="galeri">
   <h2>Galeri</h2>
-  <div class="galeri-menu">
-    <button onclick="toggleGaleri('resim')">📷 Foto Galeri</button>
-    <button onclick="toggleGaleri('yorum')">📝 Yorum Galerisi</button>
-  </div>
+  
   <div id="galeri-resim" class="gallery">
     <button class="prev" onclick="changeSlide(-1)">⬅</button>
-    <img id="slider-image" src="public/tur1.jpg" alt="Galeri Görseli" class="slider-image" style="max-width: 800px; width: 100%; border-radius: 12px;">
+    <img id="slider-image" src="public/tur16.jpg" alt="Galeri Görseli" class="slider-image" style="max-width: 800px; width: 100%; border-radius: 12px; display: block; margin: auto;">
     <button class="next" onclick="changeSlide(1)">➡</button>
   </div>
   <div id="galeri-yorum" class="gallery" style="display: none;">
@@ -142,7 +139,7 @@
   </ul>
     <div class="yorum-slider">
       <button onclick="changeYorum(-1)">⬅</button>
-      <div id="yorum-kartlari" style="display: flex; justify-content: center; align-items: center; gap: 20px;"></div>
+      <div id="yorum-kartlari" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px;"></div>
       <button onclick="changeYorum(1)">➡</button>
     </div>
   </div>
@@ -191,11 +188,13 @@
     const totalSlides = 19;
 
     function changeSlide(step) {
-      currentSlide += step;
-      if (currentSlide < 1) currentSlide = totalSlides;
-      if (currentSlide > totalSlides) currentSlide = 1;
-      const sliderImg = document.getElementById('slider-image');
-      sliderImg.src = `public/tur${currentSlide}.jpg`;
+  currentSlide += step;
+  if (currentSlide < 1) currentSlide = totalSlides;
+  if (currentSlide > totalSlides) currentSlide = 1;
+  const sliderImg = document.getElementById('slider-image');
+  sliderImg.src = `public/tur${currentSlide}.jpg`;
+  sliderImg.alt = `Tur ${currentSlide}`;
+}.jpg`;
       sliderImg.alt = `Tur ${currentSlide}`;
     }
   let yorumlar = Array.from(document.querySelectorAll('#galeri-yorum li')).map(li => li.outerHTML);
@@ -209,7 +208,11 @@ function changeYorum(adim) {
   const gosterilecek = yorumlar.slice(baslangic, baslangic + 4).join('');
   document.getElementById('yorum-kartlari').innerHTML = gosterilecek;
 }
-window.onload = () => changeYorum(0);
+window.onload = () => {
+  changeYorum(0);
+  setInterval(() => changeYorum(1), 10000);
+  setInterval(() => changeSlide(1), 10000);
+};
 </script>
 
 <a href="https://wa.me/905369958215" target="_blank" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
