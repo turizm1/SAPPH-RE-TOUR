@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sapphire Tour</title>
   <link rel="stylesheet" href="style.css">
-<style>
+  <style>
   .yorum-slider {
     overflow: hidden;
     white-space: nowrap;
@@ -14,29 +14,67 @@
     border-radius: 6px;
   }
   #yorum-kartlari {
-  display: inline-block;
-  white-space: nowrap;
-  animation: slideYorum 120s linear infinite;
-  color: white;
-}
-  @keyframes slideYorum {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
+    display: inline-block;
+    white-space: nowrap;
+    
+    color: white;
+  }
+  
     100% { transform: translateX(-100%); }
   }
 
   #galeri-kartlari {
-  display: inline-block;
-  white-space: nowrap;
-  animation: slideGaleri 120s linear infinite;
-}
-  @keyframes slideGaleri {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
+    display: inline-block;
+    white-space: nowrap;
+    
+  }
+  
     100% { transform: translateX(-100%); }
   }
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 32px !important;
+  }
+  #galeri-goster {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  #galeri-goster img {
+    width: 90% !important;
+    max-width: 300px !important;
+  }
+  #yorumlar div[id^="yorum"] {
+    width: 90% !important;
+  }
+  #yorumlar > div[style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  #rezervasyon-modern form {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  #rezervasyon-modern input,
+  #rezervasyon-modern select,
+  #rezervasyon-modern button {
+    width: 90% !important;
+  }
+  #yorum-ekle form input,
+  #yorum-ekle form textarea,
+  #yorum-ekle form button {
+    width: 100% !important;
+  }
+  footer {
+    padding: 30px 15px !important;
+  }
+  footer p, footer h2 {
+    font-size: 16px !important;
+  }
+  nav ul {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+}
 </style>
 </head>
 <body style="background-color: #a0f0ec;">
@@ -46,22 +84,7 @@
   <p style="text-align: center; font-size: 18px; color: #444; font-weight: bold; margin-top: -10px;">Siz pasaportunuzu verin, vize onayınız bizden!</p>
   <nav style="text-align: center; margin: 20px 0;">
     <ul style="list-style: none; padding: 0; display: inline-flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-      <li><a href="#">Ana Sayfa</a></li>
-      <li>
-  <div style="position: relative;">
-    <a href="#turlar">Turlar ▼</a>
-    <ul style="position: absolute; top: 100%; left: 0; background: white; color: black; list-style: none; padding: 10px; margin: 0; display: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 1000;">
-      <li><a href="#balkan">Balkanlar</a></li>
-      <li><a href="#avrupa">Avrupa</a></li>
-      <li><a href="#dubai">Dubai / Abu Dabi</a></li>
-      <li><a href="#aktiviteler">Aktiviteler</a></li>
-    </ul>
-  </div>
-</li>
-      <li><a href="#galeri">Galeri</a></li>
-      <li><a href="#yorumlar">Yorumlar</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#iletisim">İletişim</a></li>
+      
       <li>
         <select id="dilSec" style="background-color: #f1f1f1; color: #333; font-weight: bold; padding: 5px;">
           <option value="tr">TR</option>
@@ -70,21 +93,10 @@
         </select>
       </li>
     </ul>
-  <script>
-  document.querySelectorAll('nav ul li div').forEach(drop => {
-    drop.addEventListener('mouseenter', () => {
-      drop.querySelector('ul').style.display = 'block';
-    });
-    drop.addEventListener('mouseleave', () => {
-      drop.querySelector('ul').style.display = 'none';
-    });
-  });
-</script>
-</nav>
+  </nav>
 </header>
 
-  <!-- ESKİ REZERVASYON KISMINI KORU YERİNE YENİSİNİ EKLE -->
-  <section id="rezervasyon-modern" style="background: linear-gradient(135deg, #dff9fb, #f6e58d); padding: 40px 20px; text-align: center; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 900px; margin: 40px auto 20px;">
+<section id="rezervasyon-modern" style="background: linear-gradient(135deg, #f9d29d, #ffd194); padding: 40px 20px; text-align: center; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.2); max-width: 900px; margin: 40px auto 20px;">
   <h2 style="font-size: 28px; color: #130f40; margin-bottom: 20px;">Rezervasyon Yap</h2>
   <form onsubmit="return rezervasyonGonder()" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
     <input type="text" id="adsoyad" placeholder="Ad Soyad" required style="padding: 12px; border-radius: 8px; border: 1px solid #ccc; width: 260px;">
@@ -100,162 +112,237 @@
   </form>
 </section>
 
-<!-- AKTİVİTELER BÖLÜMÜ -->
-
-  <section id="galeri">
+<section id="galeri">
   <h2 style="text-align: center; font-size: 32px; color: #1e3a8a; margin-top: 40px;">Galeri</h2>
   <p style="text-align: center; color: #555; margin-bottom: 10px;">Turlarımızdan kareler</p>
-<section id="galeri-slider" style="overflow: hidden; white-space: nowrap; padding: 20px 0;">
-  <div id="galeri-kartlari" style="display: inline-block; white-space: nowrap; animation: slideGaleri 180s linear infinite;">
-    <img src="public/tur1.jpg" alt="Tur 1" style="display: inline-block; margin-right: 20px; border-radius: 12px; width: 240px; box-shadow: 0 0 6px rgba(0,0,0,0.2);">
-    <img src="public/tur2.jpg" alt="Tur 2" style="display: inline-block; margin-right: 20px; border-radius: 12px; width: 240px; box-shadow: 0 0 6px rgba(0,0,0,0.2);">
-    <img src="public/tur3.jpg" alt="Tur 3" style="display: inline-block; margin-right: 20px; border-radius: 12px; width: 240px; box-shadow: 0 0 6px rgba(0,0,0,0.2);">
-    <img src="public/tur4.jpg" alt="Tur 4" style="display: inline-block; margin-right: 20px; border-radius: 12px; width: 240px; box-shadow: 0 0 6px rgba(0,0,0,0.2);">
-    <img src="public/tur5.jpg" alt="Tur 5" style="display: inline-block; margin-right: 20px; border-radius: 12px; width: 240px; box-shadow: 0 0 6px rgba(0,0,0,0.2);">
-    <img src="public/tur1.jpg" alt="Tur 1 (tekrar)">
-    <img src="public/tur2.jpg" alt="Tur 2 (tekrar)">
-    <img src="public/tur3.jpg" alt="Tur 3 (tekrar)">
-    <img src="public/tur4.jpg" alt="Tur 4 (tekrar)">
-    <img src="public/tur5.jpg" alt="Tur 5 (tekrar)">
+  <div style="text-align: center;">
+    <div style="display: inline-flex; align-items: center; gap: 20px;">
+      <button onclick="prevGaleri()">⬅️</button>
+      <div id="galeri-goster" style="display: flex; gap: 20px; overflow: hidden;">
+        <img id="galeri1" src="public/tur16.jpg" alt="Tur 16" style="width: 240px; border-radius: 12px;">
+        <img id="galeri2" src="public/tur17.jpg" alt="Tur 17" style="width: 240px; border-radius: 12px;">
+        <img id="galeri3" src="public/tur18.jpg" alt="Tur 18" style="width: 240px; border-radius: 12px;">
+      </div>
+      <button onclick="nextGaleri()">➡️</button>
+    </div>
+  
+</div>
+</section>
+
+<section id="yorumlar" style="margin: 40px auto; max-width: 1000px; text-align: center;">
+  <h2 style="font-size: 28px; color: #1e3a8a; margin-bottom: 20px;">Müşteri Yorumları</h2>
+  <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+    <div id="yorum1" style="background:#f1f1f1; padding:20px; border-radius:12px; width: 260px; font-weight: bold;"></div>
+    <div id="yorum2" style="background:#f1f1f1; padding:20px; border-radius:12px; width: 260px; font-weight: bold;"></div>
+    <div id="yorum3" style="background:#f1f1f1; padding:20px; border-radius:12px; width: 260px; font-weight: bold;"></div>
+  </div>
+  <div style="margin-top: 20px;">
+    <button onclick="prevYorum()">⬅️</button>
+    <button onclick="nextYorum()">➡️</button>
+  </div>
+<div style="margin-top: 20px; display: flex; justify-content: center; gap: 50px; align-items: center; flex-wrap: wrap;">
+  <button id="begenBtn" onclick="begenSayac++;
+document.getElementById('begenSayac').textContent = '⭐ ' + begenSayac + ' Beğeni';" style="background: #ffcc00; border: none; border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; font-weight: bold;">⭐ Beğen</button>
+  <button id="favoriBtn" onclick="favoriSayac++;
+document.getElementById('favoriSayac').textContent = '👍 ' + favoriSayac + ' Favori';" style="background: #2ecc71; border: none; border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; font-weight: bold;">👍 Favori</button>
+</div>
+  <div id="begenSayac" style="font-size: 20px; font-weight: bold; color: #ff9900;">⭐ 100000 Beğeni</div>
+<div id="favoriSayac" style="font-size: 20px; font-weight: bold; color: #27ae60;">👍 100000 Favori</div>
+</div>
+</section>
+
+<section id="biz-kimiz" style="background: linear-gradient(135deg, #f6d365, #fda085); margin: 40px auto; padding: 30px; border-radius: 16px; max-width: 1000px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  <h2 style="text-align: center; font-size: 32px; color: #222; margin-bottom: 20px;">Biz Kimiz?</h2>
+  <p style="font-size: 18px; line-height: 1.8; color: #333; text-align: center;">
+    Sapphire Tour olarak 1998 yılından bu yana, dünyanın dört bir yanında milyonlarca kişiye unutulmaz seyahat deneyimleri yaşatıyoruz. Kurulduğumuz ilk günden itibaren müşteri memnuniyetini en üst seviyede tutarak; güvenilir, profesyonel ve yenilikçi bir hizmet anlayışıyla hareket ettik. Geniş destinasyon ağımız, deneyimli rehber kadromuz ve titizlikle planlanmış programlarımızla hem bireysel hem de kurumsal seyahatlerde yanınızdayız.<br><br>
+    25 yılı aşkın tecrübemizle yurt içi ve yurt dışı turlarda kaliteyi ve konforu bir arada sunuyoruz. Sadece bir seyahat değil, aynı zamanda bir yaşam anısı sunmak için buradayız. Güvenli ulaşım, seçkin oteller, profesyonel rehberlik ve güler yüzlü hizmet anlayışıyla her zaman bir adım öndeyiz. Bizimle yola çıkan herkes, bir sonraki seyahatinde yine Sapphire Tour’u tercih ediyor.<br><br>
+    Çünkü biz sadece tur düzenlemiyoruz, hayal ettiklerinizi gerçeğe dönüştürüyoruz.
+  </p>
+</section>
+
+<section id="blog" style="padding: 40px 20px; background: #ffffff;">
+  <h2 style="text-align: center; font-size: 32px; color: #1e3a8a; margin-bottom: 30px;">Blog Yazıları</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+    <div style="background: linear-gradient(to right, #dce35b, #45b649); padding: 20px; border-radius: 12px; width: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <h3 style="color: #fff;">Gidilen Ülkeler</h3>
+      <p style="color: #fff;">Bugüne kadar 60'tan fazla ülkeye yüzlerce tur düzenledik. Avrupa’dan Orta Doğu’ya, Asya’dan Balkanlar’a kadar geniş bir destinasyon ağına sahibiz. En çok tercih edilen ülkeler arasında İtalya, Fransa, İspanya, Dubai, Mısır ve Tayland bulunuyor.</p>
+    </div>
+    <div style="background: linear-gradient(to right, #f7971e, #ffd200); padding: 20px; border-radius: 12px; width: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <h3 style="color: #222;">Aktiviteler</h3>
+      <p style="color: #222;">Sapphire Tour olarak turlarımız sadece şehir gezileriyle sınırlı değil. Safari deneyimi, tekne turları, kültürel dans geceleri, doğa yürüyüşleri, müze gezileri ve alışveriş etkinlikleriyle tatilinizi unutulmaz hale getiriyoruz.</p>
+    </div>
+    <div style="background: linear-gradient(to right, #00c6ff, #0072ff); padding: 20px; border-radius: 12px; width: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <h3 style="color: #fff;">Vize & Prosedürler</h3>
+      <p style="color: #fff;">Siz sadece pasaportunuzu hazırlayın, vize onayınız bizde! Vize işlemleri, uçak biletleri, otel rezervasyonları ve rehberlik hizmeti gibi tüm prosedürler Sapphire Tour tarafından sizin adınıza titizlikle yürütülmektedir.</p>
+    </div>
   </div>
 </section>
 
-  <!-- YORUMLAR MEVCUT HALİYLE KALSIN, EKLEME YAP -->
-  <section id="yorumlar">
-    <div class="yorum-slider">
-      <div id="yorum-kartlari" style="display: inline-block; white-space: nowrap; animation: slideYorum 180s linear infinite;"></div>
-    </div>
-    <ul id="yorum-kaynak" style="display:none">
-      <li><strong>Carlos (ES):</strong> La mejor experiencia de mi vida.</li>
-      <li><strong>Fatemeh (IR):</strong> سفر فوق العاده ای بود</li>
-      <li><strong>Michael (AU):</strong> Smooth, safe, and exciting!</li>
-      <li><strong>Lara (IT):</strong> Tutto perfetto, grazie mille!</li>
-      <li><strong>Sofia (SE):</strong> Fantastisk resa, rekommenderas varmt.</li>
-      <li><strong>Ahmed (EG):</strong> خدمة ممتازة وتنظيم رائع</li>
-      <li><strong>Julia (PL):</strong> Świetna wycieczka i organizacja.</li>
-      <li><strong>Hakan (TR):</strong> Ailecek çok memnun kaldık.</li>
-      <li><strong>Rebecca (US):</strong> Once in a lifetime experience.</li>
-      <li><strong>Khalid (SA):</strong> رحله ممتعه و آمنه</li>
-      <li><strong>Emily (UK):</strong> Top-notch customer service.</li>
-      <li><strong>Daniela (RO):</strong> Totul a fost super!</li>
-      <li><strong>Raj (IN):</strong> Best tour I've taken in years!</li>
-      <li><strong>Anna (UA):</strong> Все було чудово!</li>
-      <li><strong>Ali (AE):</strong> الرحلة رائعة بكل المقاييس</li>
-      <li><strong>Nina (DE):</strong> Sehr gut organisiert und sicher.</li>
-      <li><strong>Jamal (MA):</strong> أحسن جولة سياحية جربتها</li>
-      <li><strong>Marta (PT):</strong> Viagem memorável!</li>
-      <li><strong>Chiaki (JP):</strong> 素敵な体験をありがとう！</li>
-      <li><strong>Gökhan (TR):</strong> Her şey çok güzeldi, tekrar katılmak isterim.</li>
-      <li><strong>Samantha (US):</strong> Incredible locations, amazing people!</li>
-      <li><strong>Mohammed (QA):</strong> جولة أكثر من رائعة</li>
-      <li><strong>Denis (FR):</strong> Une organisation parfaite !</li>
-      <li><strong>Valentina (IT):</strong> Emozionante e unica.</li>
-      <li><strong>Özlem (TR):</strong> Herkese tavsiye ederim.</li>
-      <li><strong>Jorge (MX):</strong> Gracias por tan buen servicio.</li>
-      <li><strong>Zahra (IR):</strong> واقعا لذت بردم از سفرمون</li>
-      <li><strong>Helena (NO):</strong> En opplevelse for livet!</li>
-      <li><strong>Bilal (DZ):</strong> أفضل شركة سياحة تعاملت معها</li>
-      <li><strong>Thomas (CH):</strong> Sehr angenehme und reibungslose Reise!</li>
-      <li><strong>Ayşe (TR):</strong> Harika bir deneyimdi!</li>
-      <li><strong>Elif (TR):</strong> Unutulmaz bir tatildi, teşekkürler Sapphire Tour.</li>
-      <li><strong>Ahmet (TR):</strong> Organizasyon çok profesyoneldi.</li>
-      <li><strong>Zeynep (TR):</strong> Ailecek katıldık, çok memnun kaldık.</li>
-      <li><strong>Murat (TR):</strong> Rehber çok bilgiliydi, güvenli bir yolculuktu.</li>
-      <li><strong>Büşra (TR):</strong> İlk yurtdışı deneyimim ve harikaydı.</li>
-      <li><strong>Mehmet (TR):</strong> Fiyat/performans açısından çok iyiydi.</li>
-      <li><strong>Ayhan (TR):</strong> Program doluydu ama yormadı.</li>
-      <li><strong>Canan (TR):</strong> Harika manzaralar gördük, teşekkürler.</li>
-      <li><strong>Gül (TR):</strong> Her şey zamanında ve planlıydı.</li>
-      <li><strong>Kerem (TR):</strong> Arkadaş grubumuzla unutulmaz anılar yaşadık.</li>
-      <li><strong>Nazlı (TR):</strong> Yemekler çok güzeldi, oteller temizdi.</li>
-      <li><strong>Selim (TR):</strong> Beklentilerimizin çok üstündeydi.</li>
-      <li><strong>Sevgi (TR):</strong> Özellikle rehbere bayıldık.</li>
-      <li><strong>Barış (TR):</strong> Transferler ve otel çok konforluydu.</li>
-      <li><strong>İrem (TR):</strong> Keşke daha uzun sürebilseydi.</li>
-      <li><strong>Rıza (TR):</strong> Sorunsuz ve huzurlu bir tatil geçirdik.</li>
-      <li><strong>Tuba (TR):</strong> Tavsiye ediyorum, pişman olmazsınız.</li>
-    </ul>
-  </section>
+
 
-  <!-- MEVCUT BLOG YAPISI KORUNDU -->
-  <section id="blog">
-  <h2>Blog Yazıları</h2>
-  <div class="cards" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-    <div class="card" style="background: linear-gradient(135deg, #b388eb, #d3a4f9); color: white; padding: 20px; border-radius: 12px; width: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-      <h3>1. Balkan Turlarının En Güzel Durakları</h3>
-      <p>Bu yazımızda Balkanların eşsiz şehirlerini keşfe çıkıyoruz. Tarih, kültür ve doğanın buluştuğu rotaları inceliyoruz.</p>
-      <p>Balkanlar; tarihi Osmanlı mimarisiyle bezeli sokakları, göllerle süslenmiş doğası ve sıcakkanlı insanlarıyla her gezginin mutlaka görmesi gereken bir coğrafya. Yazımızda özellikle Saraybosna, Mostar, Ohrid ve Belgrad gibi şehirlerin görülmesi gereken noktaları detaylıca ele alıyoruz. Ayrıca yerel lezzetler, halk pazarları ve geleneksel dans geceleri hakkında bilgiler de sunuluyor.</p>
-    </div>
-    <div class="card" style="background: linear-gradient(135deg, #b388eb, #d3a4f9); color: white; padding: 20px; border-radius: 12px; width: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-  <h3>2. Avrupa Rüyası: 7 Günde 5 Şehir</h3>
-  <p>Avrupa'nın kalbinde unutulmaz bir yolculuk. Paris, Roma, Amsterdam, Berlin ve Prag'da masalsı bir gezi.</p>
-  <p>Bu rotada hızlı ama doyurucu bir seyahat planı sunuyoruz. Paris’te Eyfel Kulesi altında piknik, Roma’da Kolezyum’un ihtişamı, Amsterdam’ın çiçekli kanalları ve Berlin’de alternatif sanat durakları… Her şehri 1-2 günde gezmek için ipuçları, ulaşım tüyoları ve en iyi konaklama alternatifleriyle dolu rehberimiz sizlerle.</p>
-</div>
-    <div class="card" style="background: linear-gradient(135deg, #b388eb, #d3a4f9); color: white; padding: 20px; border-radius: 12px; width: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-  <h3>3. Dubai'de Lüks ve Macera</h3>
-  <p>Dubai çöl safarisi, Burj Khalifa, alışveriş cennetleri ve marina hayatıyla dolu dolu bir tatil deneyimi.</p>
-  <p>Bir yanda altın kaplı oteller, diğer yanda deve sırtında çölün kalbine yolculuk... Dubai’de hem lüksü hem de yerel kültürü bir arada yaşayabilirsiniz. Bu yazımızda alışveriş merkezlerinin avantajları, Palm Jumeirah’ta fotoğraf noktaları ve en iyi safari turları detaylarıyla anlatılıyor. Ayrıca bütçenize göre öneriler de mevcut.</p>
-</div>
-  </div>
+
+
+<section id="yorum-ekle" style="background: linear-gradient(135deg, #ffffff, #d3f8e2); margin: 40px auto; padding: 30px; border-radius: 16px; max-width: 900px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  <h2 style="text-align: center; font-size: 28px; color: #1e3a8a; margin-bottom: 20px;">Yorum Bırakın</h2>
+  <form onsubmit="return yorumKontrol()" style="display: flex; flex-direction: column; gap: 15px;">
+    <input type="text" id="kullaniciAdi" placeholder="Adınız" required style="padding: 12px; border-radius: 8px; border: 1px solid #ccc;">
+    <textarea id="kullaniciYorumu" placeholder="Yorumunuz..." required style="padding: 12px; border-radius: 8px; border: 1px solid #ccc; min-height: 100px;"></textarea>
+    <button type="submit" style="padding: 12px 20px; background-color: #27ae60; color: white; font-weight: bold; border: none; border-radius: 8px; cursor: pointer;">Yorumu Gönder</button>
+    <p id="yorumUyari" style="color: red; display: none; font-weight: bold; text-align: center;">Yorumunuz ahlaki kurallara uymadığı için görüntülenemeyecek.</p>
+    <p id="yorumTesekkur" style="color: green; display: none; font-weight: bold; text-align: center;">Yorumunuz başarıyla gönderildi. Teşekkür ederiz.</p>
+  </form>
+</section>
+
 </section>
 
-  <footer style="text-align: center; padding: 30px; background: #003366; color: white;">
-  <p style="margin: 0; font-weight: bold;">&copy; 2025 Sapphire Tour | Bizi Takip Edin</p>
-  <div style="margin-top: 10px;">
-    <a href="https://wa.me/905369958215" target="_blank">
-      <img src="public/whatsapp.icon.jpg" alt="WhatsApp" style="width: 32px; margin: 0 10px;">
-    </a>
-    <a href="https://www.instagram.com/sapphireturlari" target="_blank">
-      <img src="public/instagram.icon.png" alt="Instagram" style="width: 32px; margin: 0 10px;">
-    </a>
-    <p style="margin-top: 10px; font-size: 14px;">İletişim: +90 536 995 82 15</p>
-  </div>
-</footer>
 
-<a href="https://wa.me/905369958215" target="_blank" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-  <img src="public/whatsapp.icon.jpg" alt="WhatsApp" style="width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
-</a>
 
-  <script>
-function rezervasyonGonder() {
-  const adsoyad = document.getElementById('adsoyad').value;
-  const tarih = document.getElementById('tarih').value;
-  const tur = document.getElementById('tursec').value;
-  const kisiler = document.getElementById('kisisayisi').value;
-  const mesaj = `Merhaba, ben ${adsoyad}. ${tarih} tarihinde ${tur} turu için ${kisiler} kişilik rezervasyon yapmak istiyorum.`;
-  const url = `https://wa.me/905369958215?text=${encodeURIComponent(mesaj)}`;
-  window.open(url, '_blank');
-  return false;
+
+
+
+<script>
+const galeriResimler = [
+  "public/tur1.jpg", "public/tur2.jpg", "public/tur3.jpg", "public/tur4.jpg", "public/tur5.jpg",
+  "public/tur6.jpg", "public/tur7.jpg", "public/tur8.jpg", "public/tur9.jpg", "public/tur10.jpg",
+  "public/tur11.jpg", "public/tur12.jpg", "public/tur13.jpg", "public/tur14.jpg", "public/tur15.jpg",
+  "public/tur16.jpg", "public/tur17.jpg", "public/tur18.jpg", "public/tur19.jpg"
+];
+let galeriIndex = 0;
+function nextGaleri() {
+  galeriIndex = (galeriIndex + 1) % galeriResimler.length;
+  for (let i = 0; i < 3; i++) {
+  const img = document.getElementById(`galeri${i + 1}`);
+  const index = (galeriIndex + i) % galeriResimler.length;
+  img.src = galeriResimler[index];
+  img.alt = `Tur ${index + 1}`;
+}
+}
+function prevGaleri() {
+  galeriIndex = (galeriIndex - 1 + galeriResimler.length) % galeriResimler.length;
+  for (let i = 0; i < 3; i++) {
+  const img = document.getElementById(`galeri${i + 1}`);
+  const index = (galeriIndex + i) % galeriResimler.length;
+  img.src = galeriResimler[index];
+  img.alt = `Tur ${index + 1}`;
+}
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  const yorumlar = document.querySelectorAll('#yorum-kaynak li');
-  const yorumAlani = document.getElementById('yorum-kartlari');
-  yorumlar.forEach(li => {
-    for (let i = 0; i < 4; i++) {
-      const span = document.createElement('span');
-      span.textContent = li.textContent + '   ';
-      span.style.display = 'inline-block';
-      span.style.marginRight = '40px';
-      yorumAlani.appendChild(span);
+const yorumlar = [
+  "Ali: Rehberler çok ilgiliydi, her şey planlıydı.",
+  "Ayşe: Tur boyunca kendimizi çok güvende hissettik.",
+  "John: The tour was amazing, everything on time!",
+  "Fatima: الرحلة كانت رائعة، شكراً لكم.",
+  "Lena: Tolle Organisation und sehr nette Reiseleitung.",
+  "Sara: Very friendly guides and smooth transport.",
+  "Khaled: تجربة لا تُنسى، أوصي بها للجميع.",
+  "Thomas: Perfekte Reise mit vielen Highlights!",
+  "Emily: I really enjoyed the Dubai safari, thank you!",
+  "Omar: أفضل رحلة مع أفضل شركة!",
+  "Julia: Alles lief nach Plan, sehr zufrieden.",
+  "Michael: Great hotels and very clean buses.",
+  "Aisha: خدمة ممتازة وتعامل راقٍ.",
+  "Peter: I would definitely book again.",
+  "Yusuf: كل شيء كان منظماً بشكل رائع.",
+  "Anna: Sehr professionell und zuverlässig.",
+  "David: Loved the Istanbul trip, very beautiful city.",
+  "Sami: شركة متميزة بالتعامل والخدمة.",
+  "Laura: Vielen Dank für die tolle Erfahrung.",
+  "Chris: Our guide was so knowledgeable!",
+  "Noura: جولة منظمة ومريحة.",
+  "Stefan: Wundervolle Tage in Europa erlebt.",
+  "Isabella: This agency is truly top-notch.",
+  "Ahmed: من أفضل الرحلات التي قمت بها.",
+  "Monika: Beeindruckende Planung, tolle Betreuung.",
+  "Karen: Excellent support before and during the trip.",
+  "Hadi: جزيل الشكر لتنظيمكم الممتاز.",
+  "Nina: Hat alles wunderbar geklappt!",
+  "Sophia: Great variety of destinations offered.",
+  "Layla: أروع رحلة لعائلتي حتى الآن.",
+  "Markus: Sehr empfehlenswert!",
+  "Clara: Thank you for a fantastic experience!",
+  "Mona: التنظيم ممتاز من البداية حتى النهاية.",
+  "Paul: Friendly drivers and top hotels.",
+  "Zainab: خدمات ممتازة وسرعة في الرد.",
+  "Tim: Loved the desert tour especially!",
+  "Selma: أفضل قرار اتخذته لحجز رحلتي.",
+  "Ben: Clean buses, good schedule.",
+  "Hiba: الرحلة كانت ممتعة ومريحة.",
+  "Jan: Wirklich ein rundum gelungenes Erlebnis.",
+  "Jasmine: I recommend Sapphire Tour to everyone.",
+  "Mohammed: لا يمكن وصف روعة هذه الرحلة.",
+  "Stefanie: Wir waren sehr begeistert!",
+  "Amira: التنظيم والسعر كانا ممتازين.",
+  "Robert: Easy booking and excellent execution.",
+  "Rania: فريق العمل كان لطيفًا جدًا.",
+  "Sebastian: Bestes Reisebüro in der Region!",
+  "Nadia: أوصي بهم بدون تردد.",
+  "Oliver: Fantastic city tours and guides.",
+  "Dina: شكراً لكم على كل شيء.",
+  "Max: I will come back next year!",
+  "Laila: أفضل تجربة سياحية مررت بها.",
+  "Tobias: Alles war perfekt organisiert.",
+  "Samira: شكراً لتنظيمكم واهتمامكم.",
+  "Andreas: Ich war sehr zufrieden mit allem.",
+  "Fatima: أجمل رحلة قمت بها.",
+  "Philipp: Top Leistung!",
+  "Yasmin: شكرًا من القلب."  
+];
+let yorumIndex = 0;
+function nextYorum() {
+  yorumIndex = (yorumIndex + 1) % yorumlar.length;
+  for (let i = 0; i < 3; i++) {
+    const el = document.getElementById(`yorum${i + 1}`);
+    if (el) el.textContent = yorumlar[(yorumIndex + i) % yorumlar.length];
+  }
+}
+function prevYorum() {
+  yorumIndex = (yorumIndex - 1 + yorumlar.length) % yorumlar.length;
+  for (let i = 0; i < 3; i++) {
+    const el = document.getElementById(`yorum${i + 1}`);
+    if (el) el.textContent = yorumlar[(yorumIndex + i) % yorumlar.length];
+  }
+}
+setInterval(nextGaleri, 5000);
+setInterval(nextYorum, 5000);
+function yorumKontrol() {
+  const yasakli = ["amk", "aq", "siktir", "orospu", "gerizekalı", "mal", "aptal", "salak", "şerefsiz", "piç", "yarrak", "göt", "sik", "ananı", "dolandırıcı", "sahtekar", "yalan", "üçkağıtçı", "soyguncu", "paramı aldı", "kandırıldım", "rezil", "berbat"];
+  const yorum = document.getElementById("kullaniciYorumu").value.toLowerCase();
+  const ad = document.getElementById("kullaniciAdi").value;
+  const uyari = document.getElementById("yorumUyari");
+  const tesekkur = document.getElementById("yorumTesekkur");
+  for (let i = 0; i < yasakli.length; i++) {
+    if (yorum.includes(yasakli[i])) {
+      uyari.style.display = "block";
+      tesekkur.style.display = "none";
+      return false;
     }
-  });
-});
-});
-
-  window.addEventListener('DOMContentLoaded', () => {
-    const yorumlar = document.querySelectorAll('#yorum-kaynak li');
-    const yorumAlani = document.getElementById('yorum-kartlari');
-    for (let i = 0; i < 5; i++) {
-      yorumlar.forEach(li => {
-        const span = document.createElement('span');
-        span.textContent = li.textContent + '   ';
-        span.style.display = 'inline-block';
-        span.style.marginRight = '50px';
-        yorumAlani.appendChild(span);
-      });
+  }
+  yorumlar.unshift(`${ad}: ${yorum}`);
+  nextYorum();
+  uyari.style.display = "none";
+  tesekkur.style.display = "block";
+  return false;
     }
-  });
+  }
+  uyari.style.display = "none";
+  tesekkur.style.display = "block";
+  return false;
+}
+let begenSayac = 100000;
+let favoriSayac = 100000;
 </script>
+
+<footer style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 50px 30px; text-align: center; border-top-left-radius: 20px; border-top-right-radius: 20px;">
+  <h2 style="font-size: 24px; margin-bottom: 20px;">İletişim</h2>
+  <p style="font-size: 18px;">📞 Telefon: <strong>0850 840 00 87</strong></p>
+  <p style="font-size: 18px;">📸 Instagram: 
+    <a href="https://www.instagram.com/sapphireturlari" target="_blank" style="color: #ffd700; font-weight: bold; text-decoration: none;">
+      <img src="public/instagram.icon.png" alt="Instagram" style="width: 24px; vertical-align: middle; margin-right: 5px;"> sapphireturlari
+    </a>
+  </p>
+</footer>
+<a href="https://wa.me/905369958215" target="_blank" title="Bilgi için iletişim" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <img src="public/whatsapp.icon.jpg" alt="WhatsApp" style="width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+</a>
 </body>
 </html>
