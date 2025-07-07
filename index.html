@@ -14,23 +14,32 @@
     border-radius: 6px;
   }
   #yorum-kartlari {
-    display: inline-block;
-    white-space: nowrap;
-    
-    color: white;
-  }
+  display: inline-block;
+  white-space: nowrap;
+  animation: slideYorum 10s linear infinite;
+  color: white;
+}
   
     100% { transform: translateX(-100%); }
   }
 
   #galeri-kartlari {
-    display: inline-block;
-    white-space: nowrap;
-    
-  }
+  display: inline-block;
+  white-space: nowrap;
+  animation: slideGaleri 10s linear infinite;
+}
   
     100% { transform: translateX(-100%); }
   }
+@keyframes slideGaleri {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+@keyframes slideYorum {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 32px !important;
@@ -310,6 +319,7 @@ function yorumKontrol() {
   const ad = document.getElementById("kullaniciAdi").value;
   const uyari = document.getElementById("yorumUyari");
   const tesekkur = document.getElementById("yorumTesekkur");
+
   for (let i = 0; i < yasakli.length; i++) {
     if (yorum.includes(yasakli[i])) {
       uyari.style.display = "block";
@@ -317,17 +327,14 @@ function yorumKontrol() {
       return false;
     }
   }
+
   yorumlar.unshift(`${ad}: ${yorum}`);
   nextYorum();
   uyari.style.display = "none";
   tesekkur.style.display = "block";
   return false;
-    }
-  }
-  uyari.style.display = "none";
-  tesekkur.style.display = "block";
-  return false;
 }
+
 let begenSayac = 100000;
 let favoriSayac = 100000;
 </script>
