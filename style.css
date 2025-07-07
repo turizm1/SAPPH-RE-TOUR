@@ -88,14 +88,12 @@ select {
   overflow: hidden;
   white-space: nowrap;
   padding: 20px 0;
-  min-height: 260px;
 }
 
 #galeri-kartlari {
   display: flex;
   gap: 20px;
   animation: slideGaleri 80s linear infinite;
-  animation-delay: 0s;
   align-items: center;
 }
 
@@ -128,14 +126,12 @@ select {
   background: #b00020;
   padding: 15px 0;
   border-radius: 6px;
-  min-height: 260px;
 }
 
 #yorum-kartlari {
   display: flex;
   gap: 20px;
   animation: slideYorum 180s linear infinite;
-  animation-delay: 0s;
   color: white;
   align-items: center;
 }
